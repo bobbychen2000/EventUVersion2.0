@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C450F1FC1778078900B20AE8 /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C450F1FB1778078900B20AE8 /* settingsViewController.m */; };
 		C47C37991777B93E009A31BE /* eventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47C37981777B93E009A31BE /* eventsViewController.m */; };
 		C47C379C1777BFD4009A31BE /* afterLoginTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47C379B1777BFD4009A31BE /* afterLoginTabViewController.m */; };
 		C4F2EB4817761C09002F24B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F2EB4717761C09002F24B4 /* UIKit.framework */; };
@@ -25,8 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C450F1FA1778078900B20AE8 /* settingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsViewController.h; sourceTree = "<group>"; };
-		C450F1FB1778078900B20AE8 /* settingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsViewController.m; sourceTree = "<group>"; };
 		C47C37971777B93E009A31BE /* eventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventsViewController.h; sourceTree = "<group>"; };
 		C47C37981777B93E009A31BE /* eventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventsViewController.m; sourceTree = "<group>"; };
 		C47C379A1777BFD4009A31BE /* afterLoginTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afterLoginTabViewController.h; sourceTree = "<group>"; };
@@ -107,8 +104,6 @@
 				C47C37981777B93E009A31BE /* eventsViewController.m */,
 				C47C379A1777BFD4009A31BE /* afterLoginTabViewController.h */,
 				C47C379B1777BFD4009A31BE /* afterLoginTabViewController.m */,
-				C450F1FA1778078900B20AE8 /* settingsViewController.h */,
-				C450F1FB1778078900B20AE8 /* settingsViewController.m */,
 			);
 			path = "EventU-iphone-Prototype";
 			sourceTree = "<group>";
@@ -199,7 +194,6 @@
 				C4F2EB6C17761CA6002F24B4 /* joinViewController.m in Sources */,
 				C47C37991777B93E009A31BE /* eventsViewController.m in Sources */,
 				C47C379C1777BFD4009A31BE /* afterLoginTabViewController.m in Sources */,
-				C450F1FC1778078900B20AE8 /* settingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
