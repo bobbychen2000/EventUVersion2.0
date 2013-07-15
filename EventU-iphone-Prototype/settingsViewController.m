@@ -1,19 +1,18 @@
 //
-//  eventsViewController.m
+//  settingsViewController.m
 //  EventU-iphone-Prototype
 //
-//  Created by Dongjin Wang on 6/23/13.
+//  Created by Dongjin Wang on 7/14/13.
 //  Copyright (c) 2013 Dongjin Wang. All rights reserved.
 //
 
-#import "eventsViewController.h"
+#import "settingsViewController.h"
 
-@interface eventsViewController ()
+@interface settingsViewController ()
 
 @end
 
-@implementation eventsViewController
-@synthesize events;
+@implementation settingsViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,7 +25,6 @@
 
 - (void)viewDidLoad
 {
-    events = [[NSArray alloc] initWithObjects:@"Bobby's Event", @"Robert's Event", @"Dan's Event",@"Jason's Event", nil];
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -44,23 +42,26 @@
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [events count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = nil;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"EventsTable"];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventsTable"];
-    }
-    
-    cell.textLabel.text = [events objectAtIndex:indexPath.row];
+    // Configure the cell...
     
     return cell;
 }
@@ -108,11 +109,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"GetSingleEventSegue" sender:self];
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
 }
-
-- (void)retrieveEventFailedWithMessage:(NSString*)message{}
-- (void)retrieveEventSucceededWithMessage:(NSString *)message Content:(NSArray*)array{}
-
 
 @end

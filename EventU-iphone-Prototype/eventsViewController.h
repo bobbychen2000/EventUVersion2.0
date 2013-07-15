@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface eventsViewController : UITableViewController
+{
+    NSArray *events;
+}
+
+@property (nonatomic,retain) NSArray *events;
+
 - (void)retrieveEventFailedWithMessage:(NSString*)message;
 - (void)retrieveEventSucceededWithMessage:(NSString *)message Content:(NSArray*)array;
 @end
