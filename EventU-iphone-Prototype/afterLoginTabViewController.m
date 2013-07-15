@@ -37,6 +37,7 @@
 }
 
 -(IBAction)logoutButton:(id)sender{
+    NSLog(@"LOGGING OUT");
      [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

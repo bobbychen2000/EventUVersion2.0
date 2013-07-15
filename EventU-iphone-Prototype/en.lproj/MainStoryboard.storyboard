@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fUQ-qi-kAc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fUQ-qi-kAc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -25,7 +25,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vSs-as-evy" kind="push" id="bcA-6g-Ebz"/>
+                                    <action selector="Join:" destination="2" eventType="touchUpInside" id="bVD-IF-hSD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gN3-rw-vMp">
@@ -38,7 +38,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HTZ-pA-amP" kind="push" id="ecX-L4-uWj"/>
+                                    <action selector="Login:" destination="2" eventType="touchUpInside" id="hw5-JH-VLo"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAe-3r-q2i">
@@ -59,16 +59,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z8e-mG-5zK">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="z8e-mG-5zK">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="166" id="Ecc-LQ-Pt8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="TextFieldExit:" destination="2" eventType="editingDidEndOnExit" id="iKk-22-aGA"/>
+                                    <action selector="backgroundTap:" destination="2" eventType="touchUpInside" id="vyx-nY-a0H"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beD-lr-KPc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="beD-lr-KPc">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="TextFieldExit:" destination="2" eventType="editingDidEndOnExit" id="xlg-w5-B9C"/>
+                                    <action selector="backgroundTap:" destination="2" eventType="touchUpInside" id="YRQ-w7-xct"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -89,6 +97,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tuI-JR-wC2"/>
+                    <connections>
+                        <outlet property="Name" destination="z8e-mG-5zK" id="7Hs-hj-gwZ"/>
+                        <outlet property="Password" destination="beD-lr-KPc" id="6la-df-jGQ"/>
+                        <segue destination="HTZ-pA-amP" kind="push" identifier="LoginSegue" id="iGb-ak-9Zk"/>
+                        <segue destination="vSs-as-evy" kind="push" identifier="JoinSegue" id="Orq-hV-kjl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
@@ -288,7 +302,7 @@
                     <navigationItem key="navigationItem" id="jOE-Sr-o8K">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="0wO-Hb-PbD">
                             <connections>
-                                <action selector="logoutButton:" destination="HTZ-pA-amP" id="QJQ-Vc-4kS"/>
+                                <action selector="logoutButton:" destination="HTZ-pA-amP" id="Su1-ZG-Rgb"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="My Activities" id="DFG-Jk-5AF">
@@ -322,16 +336,24 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RBJ-Um-YtA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RBJ-Um-YtA">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="196" id="xgQ-Hy-i2e"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="TextFieldExit:" destination="vSs-as-evy" eventType="editingDidEndOnExit" id="K4K-Xy-1f1"/>
+                                    <action selector="backgroundTap:" destination="vSs-as-evy" eventType="touchUpInside" id="GMN-vl-7I9"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iwA-es-dUy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iwA-es-dUy">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="TextFieldExit:" destination="vSs-as-evy" eventType="editingDidEndOnExit" id="imP-He-RA5"/>
+                                    <action selector="backgroundTap:" destination="vSs-as-evy" eventType="touchUpInside" id="viY-qu-VZJ"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgO-xH-FN2">
                                 <constraints>
@@ -364,10 +386,17 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="Register:" destination="vSs-as-evy" eventType="touchUpInside" id="heT-Bk-Slc"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RxQ-KZ-OFP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RxQ-KZ-OFP">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="TextFieldExit:" destination="vSs-as-evy" eventType="editingDidEndOnExit" id="0a2-f0-zNn"/>
+                                    <action selector="backgroundTap:" destination="vSs-as-evy" eventType="touchUpInside" id="zla-s3-0qh"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTs-DZ-dM0">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -379,12 +408,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mgf-PM-kjd">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="196" id="5dw-1e-Po8"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Mgf-PM-kjd">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="TextFieldExit:" destination="vSs-as-evy" eventType="editingDidEndOnExit" id="5xB-7E-ike"/>
+                                    <action selector="backgroundTap:" destination="vSs-as-evy" eventType="touchUpInside" id="DiI-wc-Ymc"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuI-UJ-aqh">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -402,14 +432,14 @@
                         <constraints>
                             <constraint firstItem="V95-Ia-haw" firstAttribute="leading" secondItem="VmB-Ag-Kqa" secondAttribute="leading" constant="56" id="1b3-8g-lrE"/>
                             <constraint firstItem="Dbf-au-3qv" firstAttribute="trailing" secondItem="Mgf-PM-kjd" secondAttribute="trailing" type="default" id="1oT-Ob-Vdv"/>
+                            <constraint firstItem="Qqq-nm-gzd" firstAttribute="top" secondItem="RBJ-Um-YtA" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="40P-ON-795"/>
                             <constraint firstItem="DuI-UJ-aqh" firstAttribute="top" secondItem="Mgf-PM-kjd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4T5-KG-BJd"/>
                             <constraint firstAttribute="bottom" secondItem="V95-Ia-haw" secondAttribute="bottom" constant="35" id="6et-KM-fgy"/>
-                            <constraint firstItem="Mgf-PM-kjd" firstAttribute="centerX" secondItem="RxQ-KZ-OFP" secondAttribute="centerX" type="default" id="7eV-m6-frf"/>
-                            <constraint firstItem="RBJ-Um-YtA" firstAttribute="top" secondItem="VmB-Ag-Kqa" secondAttribute="top" constant="36" id="8IH-KX-ykc"/>
                             <constraint firstAttribute="bottom" secondItem="Dbf-au-3qv" secondAttribute="bottom" constant="97" id="8W5-RL-6AR"/>
                             <constraint firstItem="EgO-xH-FN2" firstAttribute="top" secondItem="VmB-Ag-Kqa" secondAttribute="top" constant="5" id="Bfw-ES-o9w"/>
                             <constraint firstItem="iwA-es-dUy" firstAttribute="leading" secondItem="RxQ-KZ-OFP" secondAttribute="leading" type="default" id="C3j-VE-OYK"/>
                             <constraint firstItem="QTs-DZ-dM0" firstAttribute="leading" secondItem="VmB-Ag-Kqa" secondAttribute="leading" constant="59" id="FxD-pV-dPk"/>
+                            <constraint firstItem="RBJ-Um-YtA" firstAttribute="leading" secondItem="iwA-es-dUy" secondAttribute="leading" type="default" id="K4x-Xf-iAz"/>
                             <constraint firstItem="Mgf-PM-kjd" firstAttribute="leading" secondItem="RxQ-KZ-OFP" secondAttribute="leading" type="default" id="Ktc-MG-4e0"/>
                             <constraint firstAttribute="bottom" secondItem="DuI-UJ-aqh" secondAttribute="bottom" constant="142" id="QDW-Iz-NUQ"/>
                             <constraint firstItem="QTs-DZ-dM0" firstAttribute="top" secondItem="iwA-es-dUy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Vgh-w2-UbX"/>
@@ -420,16 +450,25 @@
                             <constraint firstItem="Ajx-yC-yci" firstAttribute="leading" secondItem="VmB-Ag-Kqa" secondAttribute="leading" constant="60" id="cHI-AK-ivb"/>
                             <constraint firstItem="h3r-Ao-rXo" firstAttribute="top" secondItem="RxQ-KZ-OFP" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="eDK-4L-sto"/>
                             <constraint firstItem="iwA-es-dUy" firstAttribute="top" secondItem="VmB-Ag-Kqa" secondAttribute="top" constant="94" id="gbf-cV-n6x"/>
-                            <constraint firstItem="Qqq-nm-gzd" firstAttribute="top" secondItem="VmB-Ag-Kqa" secondAttribute="top" constant="72" id="hgq-oT-4wq"/>
                             <constraint firstItem="RBJ-Um-YtA" firstAttribute="leading" secondItem="h3r-Ao-rXo" secondAttribute="leading" type="default" id="lSb-V8-Tf7"/>
                             <constraint firstItem="Dbf-au-3qv" firstAttribute="leading" secondItem="Mgf-PM-kjd" secondAttribute="leading" type="default" id="lW7-NE-lrE"/>
+                            <constraint firstItem="RBJ-Um-YtA" firstAttribute="trailing" secondItem="Mgf-PM-kjd" secondAttribute="trailing" type="default" id="ta1-ed-dUf"/>
                             <constraint firstItem="QTs-DZ-dM0" firstAttribute="leading" secondItem="Qqq-nm-gzd" secondAttribute="leading" type="default" id="wOq-R3-hf6"/>
                             <constraint firstItem="DuI-UJ-aqh" firstAttribute="leading" secondItem="h3r-Ao-rXo" secondAttribute="leading" type="default" id="xKI-Lw-kC1"/>
                             <constraint firstItem="Qqq-nm-gzd" firstAttribute="leading" secondItem="EgO-xH-FN2" secondAttribute="leading" type="default" id="xjZ-69-jYi"/>
                             <constraint firstItem="RxQ-KZ-OFP" firstAttribute="top" secondItem="VmB-Ag-Kqa" secondAttribute="top" constant="155" id="yA9-d6-0Hr"/>
+                            <constraint firstItem="RBJ-Um-YtA" firstAttribute="top" secondItem="VmB-Ag-Kqa" secondAttribute="top" constant="34" id="zbE-ia-V8S"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bR7-TV-goG"/>
+                    <connections>
+                        <outlet property="Email" destination="RBJ-Um-YtA" id="SsX-Zl-5nN"/>
+                        <outlet property="Gender" destination="Dbf-au-3qv" id="RxK-wJ-MNp"/>
+                        <outlet property="Name" destination="iwA-es-dUy" id="Iqd-Vx-1hd"/>
+                        <outlet property="Password" destination="RxQ-KZ-OFP" id="qNL-mK-gbM"/>
+                        <outlet property="PasswordConfirm" destination="Mgf-PM-kjd" id="FPs-U8-bfz"/>
+                        <segue destination="HTZ-pA-amP" kind="push" identifier="JoinToLoginSegue" id="gBX-xG-tGW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8pi-yr-nPS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -455,29 +494,12 @@
             <point key="canvasLocation" x="-1012" y="-2"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-        </class>
-        <class className="afterLoginTabViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/afterLoginTabViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutButton:"/>
-            </relationships>
-        </class>
-        <class className="eventsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/eventsViewController.h"/>
-        </class>
-        <class className="joinViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/joinViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="iGb-ak-9Zk"/>
+    </inferredMetricsTieBreakers>
 </document>
