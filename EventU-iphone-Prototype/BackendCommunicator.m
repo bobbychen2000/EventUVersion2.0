@@ -65,7 +65,7 @@ static EventRetriverObject* ERO;
 /**
  *THIS ENTIRE ACTION STACK IS NOT REENTRANT, NOT JUST THIS METHOD
  */
-+ (void)RetrieveEventsAsynchronousWithCallbackViewDelegate:(eventsViewController*)viewD Timeout:(int64_t)timeout{
++ (void)RetrieveEventsAsynchronousWithCallbackViewDelegate:(EventViewController*)viewD Timeout:(int64_t)timeout{
     [ERO RetrieveEventsAsynchronousWithCallbackViewDelegate:viewD Timeout:timeout];
 }
 

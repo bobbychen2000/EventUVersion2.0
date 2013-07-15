@@ -21,7 +21,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [BackendCommunicator initialize];
     loadingView = [[UIView alloc] initWithFrame:CGRectMake(75, 155, 170, 170)];
     loadingView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     loadingView.clipsToBounds = YES;
@@ -90,32 +89,44 @@
     NSLog(@"In prepare for segue from Main to JOIN/LOGIN");
 }
 
-- (void)requestFailed:(ASIHTTPRequest*)request{
+- (void)requestFailedAction:(NSString*)message{
     AppDelegate* myAppDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     myAppDelegate.UserName = nil;
     myAppDelegate.HashedPassword = nil;
     
     [activityView stopAnimating];
     [loadingView removeFromSuperview];
-    [myAppDelegate showAlertTitle:@"Login Failed" Content:@"Please check your username and password again"];
+    [myAppDelegate showAlertTitle:@"Login Failed" Content:message];
     self.view.userInteractionEnabled=TRUE;
     self.navigationController.view.userInteractionEnabled=TRUE;
-    
-    return;
 }
 
-- (void)requestFinished:(ASIHTTPRequest*)request{
+- (void)requestSuccessAction:(NSString*)userID{
     AppDelegate* myAppDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    myAppDelegate.userID = userID;
     
     [activityView stopAnimating];
     [loadingView removeFromSuperview];
+    NSLog(@"THIS GUY's USERID is: %@", userID);
     [myAppDelegate showAlertTitle:@"Login Successful" Content:@"Welcome back!"];
     self.view.userInteractionEnabled=TRUE;
     self.navigationController.view.userInteractionEnabled=TRUE;
     
     [self performSegueWithIdentifier:@"LoginSegue" sender:self];
-    return;
+}
 
+
+- (void)requestFailed:(ASIHTTPRequest*)request{
+    [self requestFailedAction:@"LOGIN FAILED BECAUSE OF NETWORKING FAILURE"];
+}
+
+- (void)requestFinished:(ASIHTTPRequest*)request{
+    AppDelegate* myAppDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSString * potentialID = [myAppDelegate isLoginSuccess:request];
+    if(potentialID==nil)
+       [self requestFailedAction:@"USERNAME AND PASSWORD MISMATCH"];
+    else
+       [self requestSuccessAction:potentialID];
 }
 
 @end

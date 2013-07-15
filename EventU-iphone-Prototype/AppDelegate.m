@@ -11,6 +11,7 @@
 @implementation AppDelegate
 @synthesize UserName;
 @synthesize HashedPassword;
+@synthesize userID;
 @synthesize status;
 
 //My functions, little bit messy now
@@ -67,13 +68,36 @@
 }
 
 
--(void) retrieveEventListWithCallbackViewDelegate:(eventsViewController *) viewDelegate{
-    [BackendCommunicator RetrieveEventsAsynchronousWithCallbackViewDelegate:viewDelegate Timeout:10];
+
+-(NSString*) isRegistrationSuccess:(ASIHTTPRequest*)request{
+    NSString *responseString = [request responseString];
+    NSDictionary *responseDict = [responseString JSONValue];
+    NSString *result = [responseDict valueForKey:@"action"];
+    if([result isEqualToString:@"Success"]){
+        NSString* user_id = [responseDict valueForKey:@"userID"];
+        return user_id;
+    }
+    else{
+        NSString* failReason = [responseDict valueForKey:@"reason"];
+        NSLog(@"REGISTRATION IS NOT SUCCESSFUL BECAUSE OF %@", failReason);
+        return nil;
+    }
 }
 
-
-
-
+-(NSString*) isLoginSuccess:(ASIHTTPRequest*)request{
+    NSString *responseString = [request responseString];
+    NSDictionary *responseDict = [responseString JSONValue];
+    NSString *result = [responseDict valueForKey:@"action"];
+    if([result isEqualToString:@"Success"]){
+        NSString* user_id = [responseDict valueForKey:@"userID"];
+        return user_id;
+    }
+    else{
+        NSString* failReason = [responseDict valueForKey:@"reason"];
+        NSLog(@"REGISTRATION IS NOT SUCCESSFUL BECAUSE OF %@", failReason);
+        return nil;
+    }
+}
 
 
 
@@ -108,6 +132,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    [BackendCommunicator initialize];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 

@@ -26,6 +26,6 @@
 
 + (void)RegisterAsynchronousWithEmail:(NSString* )userName Password:(NSString*)passWord NickName:(NSString*)nickName Gender:(NSInteger)gender Timeout:(int64_t)timeout CallbackViewDelegate:(UIViewController*) viewD;
 
-+ (void)RetrieveEventsAsynchronousWithCallbackViewDelegate:(eventsViewController*)viewD Timeout:(int64_t)timeout;
++ (void)RetrieveEventsAsynchronousWithCallbackViewDelegate:(EventViewController*)viewD Timeout:(int64_t)timeout;
 
 @end
