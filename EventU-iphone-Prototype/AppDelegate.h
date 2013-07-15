@@ -19,6 +19,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, atomic) NSString* UserName;
 @property (strong, atomic) NSString* HashedPassword;
+@property (strong, atomic) NSString* userID;
 //status: 0 - start first run
 //status: 1 - logged in
 //status: 2 - **
@@ -27,8 +28,9 @@
 -(IBAction) showAlertTitle:(NSString *)inputTitle Content:(NSString*)inputContent;
 -(BOOL) NSStringIsValidEmail:(NSString *)checkString;
 -(NSString *) HashStringSHA2:(NSString *)input;
-
 -(void) loginWithUsername:(NSString *)userName Password:(NSString *)userPassword CallbackViewDelegate:(UIViewController*)viewD;
 -(void) registerWithEmail:(NSString *)userName Name:(NSString*)nickName Password:(NSString*)userPassword Gender:(NSInteger)gender CallbackViewDelegate:(UIViewController *)viewDelegate;
 -(void) retrieveEventListWithCallbackViewDelegate:(eventsViewController *) viewDelegate;
+-(NSString*) isRegistrationSuccess:(ASIHTTPRequest*)request;
+-(NSString*) isLoginSuccess:(ASIHTTPRequest*)request;
 @end

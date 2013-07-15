@@ -11,6 +11,7 @@
 @implementation AppDelegate
 @synthesize UserName;
 @synthesize HashedPassword;
+@synthesize userID;
 @synthesize status;
 
 //My functions, little bit messy now
@@ -72,8 +73,35 @@
 }
 
 
+-(NSString*) isRegistrationSuccess:(ASIHTTPRequest*)request{
+    NSString *responseString = [request responseString];
+    NSDictionary *responseDict = [responseString JSONValue];
+    NSString *result = [responseDict valueForKey:@"action"];
+    if([result isEqualToString:@"Success"]){
+        NSString* user_id = [responseDict valueForKey:@"userID"];
+        return user_id;
+    }
+    else{
+        NSString* failReason = [responseDict valueForKey:@"reason"];
+        NSLog(@"REGISTRATION IS NOT SUCCESSFUL BECAUSE OF %@", failReason);
+        return nil;
+    }
+}
 
-
+-(NSString*) isLoginSuccess:(ASIHTTPRequest*)request{
+    NSString *responseString = [request responseString];
+    NSDictionary *responseDict = [responseString JSONValue];
+    NSString *result = [responseDict valueForKey:@"action"];
+    if([result isEqualToString:@"Success"]){
+        NSString* user_id = [responseDict valueForKey:@"userID"];
+        return user_id;
+    }
+    else{
+        NSString* failReason = [responseDict valueForKey:@"reason"];
+        NSLog(@"REGISTRATION IS NOT SUCCESSFUL BECAUSE OF %@", failReason);
+        return nil;
+    }
+}
 
 
 

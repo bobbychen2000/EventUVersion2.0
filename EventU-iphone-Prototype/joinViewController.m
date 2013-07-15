@@ -108,34 +108,50 @@
     return;
 }
 
-
--(void)requestFailed:(ASIHTTPRequest *)request{
-
+-(void)requestFailedAction:(NSString*) message{
     AppDelegate* myAppDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     myAppDelegate.UserName = nil;
     myAppDelegate.HashedPassword = nil;
+    myAppDelegate.userID = nil;
     
     [activityView stopAnimating];
     [loadingView removeFromSuperview];
-    [myAppDelegate showAlertTitle:@"Registration Failed" Content:@"Don't want to provide detailed info now, PLEASE RETRY"];
+    [myAppDelegate showAlertTitle:@"Registration Failed" Content:message];
     self.view.userInteractionEnabled=TRUE;
     self.navigationController.view.userInteractionEnabled=TRUE;
-
+    
     return;
+}
+
+-(void)requestSuccessAction:(NSString*) userID{
+    AppDelegate* myAppDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    myAppDelegate.userID = userID;
+    [activityView stopAnimating];
+    [loadingView removeFromSuperview];
+    NSLog(@"THIS GUY's USER ID is: %@", userID);
+    [myAppDelegate showAlertTitle:@"Registration Successful" Content:@"Welcome!"];
+    self.view.userInteractionEnabled=TRUE;
+    self.navigationController.view.userInteractionEnabled=TRUE;
+    [self performSegueWithIdentifier:@"JoinToLoginSegue" sender:self];
+    return;
+}
+
+-(void)requestFailed:(ASIHTTPRequest *)request{
+    [self requestFailedAction:@"REQUEST FAILED BECAUSE OF NETWORK REASON"];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request{
     
     AppDelegate* myAppDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
-    [activityView stopAnimating];
-    [loadingView removeFromSuperview];
-    [myAppDelegate showAlertTitle:@"Registration Successful" Content:@"Welcome!"];
-    self.view.userInteractionEnabled=TRUE;
-    self.navigationController.view.userInteractionEnabled=TRUE;
+    NSString* potentialID = [myAppDelegate isRegistrationSuccess:request];
     
-    [self performSegueWithIdentifier:@"JoinToLoginSegue" sender:self];
-    return;
+    if(potentialID==nil)
+    {
+        [self requestFailedAction:@"EMAIL ALREADY EXISTS"];
+    }
+    else
+        [self requestSuccessAction:potentialID];
 }
 
 

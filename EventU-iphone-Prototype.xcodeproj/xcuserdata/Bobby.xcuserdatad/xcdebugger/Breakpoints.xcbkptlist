@@ -25,25 +25,10 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "19"
-         endingLineNumber = "19"
-         landmarkName = "+LoginAsynchronousWithName:Password:Timeout:CallbackViewDelegate:"
-         landmarkType = "4">
+         endingLineNumber = "19">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "EventU-iphone-Prototype/AppDelegate.h"
-         timestampString = "394263447.737989"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "28"
-         endingLineNumber = "28"
-         landmarkName = "-HashStringSHA2:"
-         landmarkType = "4">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "EventU-iphone-Prototype/EventRetriverObject.m"

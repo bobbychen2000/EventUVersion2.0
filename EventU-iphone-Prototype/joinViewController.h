@@ -25,5 +25,7 @@ UILabel *loadingLabel;
 - (IBAction)Register:(id)sender;
 - (void)requestFinished:(ASIHTTPRequest*)request;
 - (void)requestFailed:(ASIHTTPRequest*)request;
+-(void)requestFailedAction:(NSString*) message;
+-(void)requestSuccessAction:(NSString*) userID;
 
 @end

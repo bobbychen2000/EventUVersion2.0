@@ -23,6 +23,7 @@
 		C4F2EB6417761C09002F24B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F2EB6317761C09002F24B4 /* ViewController.m */; };
 		C4F2EB6C17761CA6002F24B4 /* joinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F2EB6B17761CA5002F24B4 /* joinViewController.m */; };
 		C59C29BB17934F3F00616023 /* EventRetriverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C59C29BA17934F3F00616023 /* EventRetriverObject.m */; };
+		C59C29BE1793C76000616023 /* EventBrief.m in Sources */ = {isa = PBXBuildFile; fileRef = C59C29BD1793C76000616023 /* EventBrief.m */; };
 		C5EBCC81177AB08F000CF470 /* BackendCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCC80177AB08F000CF470 /* BackendCommunicator.m */; };
 		C5EBCC9C177ACF54000CF470 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCC84177ACF54000CF470 /* NSObject+SBJson.m */; };
 		C5EBCC9D177ACF54000CF470 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCC87177ACF54000CF470 /* SBJsonParser.m */; };
@@ -80,6 +81,8 @@
 		C4F2EB6B17761CA5002F24B4 /* joinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = joinViewController.m; sourceTree = "<group>"; };
 		C59C29B917934F3F00616023 /* EventRetriverObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventRetriverObject.h; sourceTree = "<group>"; };
 		C59C29BA17934F3F00616023 /* EventRetriverObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventRetriverObject.m; sourceTree = "<group>"; };
+		C59C29BC1793C76000616023 /* EventBrief.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBrief.h; sourceTree = "<group>"; };
+		C59C29BD1793C76000616023 /* EventBrief.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventBrief.m; sourceTree = "<group>"; };
 		C5EBCC7F177AB08F000CF470 /* BackendCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendCommunicator.h; sourceTree = "<group>"; };
 		C5EBCC80177AB08F000CF470 /* BackendCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackendCommunicator.m; sourceTree = "<group>"; };
 		C5EBCC83177ACF54000CF470 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 		C4F2EB4D17761C09002F24B4 /* EventU-iphone-Prototype */ = {
 			isa = PBXGroup;
 			children = (
+				C59C29BC1793C76000616023 /* EventBrief.h */,
+				C59C29BD1793C76000616023 /* EventBrief.m */,
 				C59C29B917934F3F00616023 /* EventRetriverObject.h */,
 				C59C29BA17934F3F00616023 /* EventRetriverObject.m */,
 				C5EBCC7F177AB08F000CF470 /* BackendCommunicator.h */,
@@ -390,6 +395,7 @@
 				C5EBCCC4177ACF9F000CF470 /* ASINetworkQueue.m in Sources */,
 				C5EBCCC7177ACFAC000CF470 /* Reachability.m in Sources */,
 				C59C29BB17934F3F00616023 /* EventRetriverObject.m in Sources */,
+				C59C29BE1793C76000616023 /* EventBrief.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
