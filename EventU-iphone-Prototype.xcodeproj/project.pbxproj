@@ -10,6 +10,9 @@
 		C47C37991777B93E009A31BE /* eventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47C37981777B93E009A31BE /* eventsViewController.m */; };
 		C47C379C1777BFD4009A31BE /* afterLoginTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47C379B1777BFD4009A31BE /* afterLoginTabViewController.m */; };
 		C4B803AD1793B992008651CB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B803AC1793B992008651CB /* CoreLocation.framework */; };
+		C4B803B01793C3A2008651CB /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B803AF1793C3A2008651CB /* settingsViewController.m */; };
+		C4B803B31793C3E7008651CB /* friendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B803B21793C3E7008651CB /* friendsViewController.m */; };
+		C4B803B61793C443008651CB /* myActivitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B803B51793C442008651CB /* myActivitiesViewController.m */; };
 		C4F2EB4817761C09002F24B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F2EB4717761C09002F24B4 /* UIKit.framework */; };
 		C4F2EB4A17761C09002F24B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F2EB4917761C09002F24B4 /* Foundation.framework */; };
 		C4F2EB4C17761C09002F24B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F2EB4B17761C09002F24B4 /* CoreGraphics.framework */; };
@@ -60,6 +63,12 @@
 		C47C379A1777BFD4009A31BE /* afterLoginTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afterLoginTabViewController.h; sourceTree = "<group>"; };
 		C47C379B1777BFD4009A31BE /* afterLoginTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afterLoginTabViewController.m; sourceTree = "<group>"; };
 		C4B803AC1793B992008651CB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C4B803AE1793C3A2008651CB /* settingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsViewController.h; sourceTree = "<group>"; };
+		C4B803AF1793C3A2008651CB /* settingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsViewController.m; sourceTree = "<group>"; };
+		C4B803B11793C3E7008651CB /* friendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = friendsViewController.h; sourceTree = "<group>"; };
+		C4B803B21793C3E7008651CB /* friendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = friendsViewController.m; sourceTree = "<group>"; };
+		C4B803B41793C442008651CB /* myActivitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myActivitiesViewController.h; sourceTree = "<group>"; };
+		C4B803B51793C442008651CB /* myActivitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myActivitiesViewController.m; sourceTree = "<group>"; };
 		C4F2EB4417761C09002F24B4 /* EventU-iphone-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EventU-iphone-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F2EB4717761C09002F24B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C4F2EB4917761C09002F24B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -213,6 +222,12 @@
 				C4F2EB5617761C09002F24B4 /* AppDelegate.h */,
 				C4F2EB5717761C09002F24B4 /* AppDelegate.m */,
 				C4F2EB5F17761C09002F24B4 /* MainStoryboard.storyboard */,
+				C4B803B41793C442008651CB /* myActivitiesViewController.h */,
+				C4B803B51793C442008651CB /* myActivitiesViewController.m */,
+				C4B803B11793C3E7008651CB /* friendsViewController.h */,
+				C4B803B21793C3E7008651CB /* friendsViewController.m */,
+				C4B803AE1793C3A2008651CB /* settingsViewController.h */,
+				C4B803AF1793C3A2008651CB /* settingsViewController.m */,
 				C4F2EB6217761C09002F24B4 /* ViewController.h */,
 				C4F2EB6317761C09002F24B4 /* ViewController.m */,
 				C4F2EB4E17761C09002F24B4 /* Supporting Files */,
@@ -390,6 +405,9 @@
 				C5EBCCC4177ACF9F000CF470 /* ASINetworkQueue.m in Sources */,
 				C5EBCCC7177ACFAC000CF470 /* Reachability.m in Sources */,
 				C59C29BB17934F3F00616023 /* EventRetriverObject.m in Sources */,
+				C4B803B01793C3A2008651CB /* settingsViewController.m in Sources */,
+				C4B803B31793C3E7008651CB /* friendsViewController.m in Sources */,
+				C4B803B61793C443008651CB /* myActivitiesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
