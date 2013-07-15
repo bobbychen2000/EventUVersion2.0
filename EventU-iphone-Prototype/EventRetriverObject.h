@@ -8,20 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "eventsViewController.h"
 #import "BackendCommunicator.h"
 #import <CoreLocation/CoreLocation.h>
+#import "EventBrief.h"
+@class EventViewController;
 
 @interface EventRetriverObject : NSObject <CLLocationManagerDelegate>{
-    eventsViewController* callBackViewController;
+    EventViewController* callBackViewController;
     CLLocationManager* locationManager;
     boolean_t flag;
 }
-@property(atomic, strong) eventsViewController* callBackViewController;
+@property(atomic, strong) EventViewController* callBackViewController;
 @property(atomic, strong) CLLocationManager* locationManager;
 @property(atomic) boolean_t flag;
 
-- (void)RetrieveEventsAsynchronousWithCallbackViewDelegate:(eventsViewController*)viewD Timeout:(int64_t)timeout;
+- (void)RetrieveEventsAsynchronousWithCallbackViewDelegate:(EventViewController *)viewD Timeout:(int64_t)timeout;
 - (void)locationManager:(CLLocationManager *) manager didUpdateLocations:(NSArray*)locations;
 - (void)locationManager:(CLLocationManager *) manager didFailWithError:(NSError*) error;
 - (void)locationManager:(CLLocationManager *) manager didFinishDeferredUpdatesWithError:(NSError*) error;

@@ -7,6 +7,7 @@
 //
 
 #import "EventRetriverObject.h"
+#import "eventsViewController.h"
 
 @implementation EventRetriverObject 
 @synthesize callBackViewController = _callBackViewController;
@@ -15,19 +16,21 @@
 
 - (id)init{
         _locationManager = [[CLLocationManager alloc] init];
+        NSLog(@"EVENT RETRIVER OBJECT INITIALIZED");
         return self;
     }
 
 /*
  *THIS ENTIRE CALLING STACK IS NOT THREAD-SAFE, IT DOES NOT SUPPORT REENTRANT CALLS
  */
-- (void) RetrieveEventsAsynchronousWithCallbackViewDelegate:(eventsViewController*)viewD Timeout:(int64_t)timeout{
+- (void) RetrieveEventsAsynchronousWithCallbackViewDelegate:(EventViewController*)viewD Timeout:(int64_t)timeout{
     _callBackViewController = viewD;
     _locationManager.delegate=self;
     _locationManager.desiredAccuracy=kCLLocationAccuracyBest;
     _locationManager.distanceFilter=kCLDistanceFilterNone;
     [_locationManager startUpdatingLocation];
     [_locationManager performSelector:@selector(stopUpdatingLocation:) withObject:@"TimedOut" afterDelay:30];
+    NSLog(@"HAE SENT OUT UPDATING LOCATION REQUEST");
 }
 
 - (void)locationManager:(CLLocationManager *) manager didUpdateLocations:(NSArray*)locations{
@@ -73,7 +76,34 @@
   }
                            
 - (void)requestFinished:(ASIHTTPRequest*)request{
-    [_callBackViewController retrieveEventSucceededWithMessage:@"GET EVENTS Succeeded" Content:nil];
+    NSString* responseString = [request responseString];
+    NSDictionary *responseDict = [responseString JSONValue];
+    NSString *result = [responseDict valueForKey:@"action"];
+    if([result isEqualToString:@"Success"])
+    {
+        NSString * EventNames = [responseDict valueForKey:@"names"];
+        NSString * EventIDs = [responseDict valueForKey:@"IDs"];
+        NSArray* EventNamesArray = [EventNames componentsSeparatedByString:@","];
+        NSArray* EventIDsArray = [EventIDs componentsSeparatedByString:@","];
+        
+        int size = [EventNamesArray count];
+        NSMutableArray* contentArray = [[NSMutableArray alloc] init];
+        
+        for(int i=0; i<size; i++){
+            EventBrief* current_eb = [[EventBrief alloc]init];
+            current_eb.EventName = [EventNamesArray objectAtIndex:i];
+            current_eb.EventID   = [EventIDsArray objectAtIndex:i];
+            [contentArray addObject:current_eb];
+        }
+        
+        NSArray* retContentArray = [contentArray copy];
+        
+        [_callBackViewController retrieveEventSucceededWithMessage:@"SUCCEEDED" Content:EventNamesArray];
+    }
+    else{
+        NSString* failReason = [responseDict valueForKey:@"reason"];
+        [_callBackViewController retrieveEventFailedWithMessage:failReason];
+    }
 }
 
 - (void)requestFailed:(ASIHTTPRequest*)request

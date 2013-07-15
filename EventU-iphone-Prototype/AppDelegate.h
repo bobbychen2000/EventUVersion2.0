@@ -30,7 +30,6 @@
 -(NSString *) HashStringSHA2:(NSString *)input;
 -(void) loginWithUsername:(NSString *)userName Password:(NSString *)userPassword CallbackViewDelegate:(UIViewController*)viewD;
 -(void) registerWithEmail:(NSString *)userName Name:(NSString*)nickName Password:(NSString*)userPassword Gender:(NSInteger)gender CallbackViewDelegate:(UIViewController *)viewDelegate;
--(void) retrieveEventListWithCallbackViewDelegate:(eventsViewController *) viewDelegate;
 -(NSString*) isRegistrationSuccess:(ASIHTTPRequest*)request;
 -(NSString*) isLoginSuccess:(ASIHTTPRequest*)request;
 @end

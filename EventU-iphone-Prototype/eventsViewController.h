@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BackendCommunicator.h"
+#import "AppDelegate.h"
 
-@interface eventsViewController : UITableViewController
+@interface EventViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *events;
 }

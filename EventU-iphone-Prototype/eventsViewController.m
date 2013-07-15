@@ -8,11 +8,11 @@
 
 #import "eventsViewController.h"
 
-@interface eventsViewController ()
+@interface EventViewController ()
 
 @end
 
-@implementation eventsViewController
+@implementation EventViewController
 @synthesize events;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -26,7 +26,8 @@
 
 - (void)viewDidLoad
 {
-    events = [[NSArray alloc] initWithObjects:@"Bobby's Event", @"Robert's Event", @"Dan's Event",@"Jason's Event", nil];
+    //events = [[NSArray alloc] initWithObjects:@"Bobby's Event", @"Robert's Event", @"Dan's Event",@"Jason's Event", nil];
+    [BackendCommunicator RetrieveEventsAsynchronousWithCallbackViewDelegate:self Timeout:30];
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -111,8 +112,13 @@
     [self performSegueWithIdentifier:@"GetSingleEventSegue" sender:self];
 }
 
-- (void)retrieveEventFailedWithMessage:(NSString*)message{}
-- (void)retrieveEventSucceededWithMessage:(NSString *)message Content:(NSArray*)array{}
+- (void)retrieveEventFailedWithMessage:(NSString*)message{
+    NSLog(@"FAILED MESSAGE: %@", message);
+}
+
+- (void)retrieveEventSucceededWithMessage:(NSString *)message Content:(NSArray*)array{
+    events = array;
+}
 
 
 @end
