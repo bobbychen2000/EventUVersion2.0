@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C47C37991777B93E009A31BE /* eventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47C37981777B93E009A31BE /* eventsViewController.m */; };
 		C47C379C1777BFD4009A31BE /* afterLoginTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47C379B1777BFD4009A31BE /* afterLoginTabViewController.m */; };
+		C4B803AD1793B992008651CB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B803AC1793B992008651CB /* CoreLocation.framework */; };
 		C4F2EB4817761C09002F24B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F2EB4717761C09002F24B4 /* UIKit.framework */; };
 		C4F2EB4A17761C09002F24B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F2EB4917761C09002F24B4 /* Foundation.framework */; };
 		C4F2EB4C17761C09002F24B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F2EB4B17761C09002F24B4 /* CoreGraphics.framework */; };
@@ -58,6 +59,7 @@
 		C47C37981777B93E009A31BE /* eventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventsViewController.m; sourceTree = "<group>"; };
 		C47C379A1777BFD4009A31BE /* afterLoginTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afterLoginTabViewController.h; sourceTree = "<group>"; };
 		C47C379B1777BFD4009A31BE /* afterLoginTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afterLoginTabViewController.m; sourceTree = "<group>"; };
+		C4B803AC1793B992008651CB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C4F2EB4417761C09002F24B4 /* EventU-iphone-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EventU-iphone-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F2EB4717761C09002F24B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C4F2EB4917761C09002F24B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4B803AD1793B992008651CB /* CoreLocation.framework in Frameworks */,
 				C5EBCCD2177AD016000CF470 /* libz.1.1.3.dylib in Frameworks */,
 				C5EBCCD3177AD017000CF470 /* libz.1.2.5.dylib in Frameworks */,
 				C5EBCCD4177AD017000CF470 /* libz.1.dylib in Frameworks */,
@@ -160,6 +163,7 @@
 		C4F2EB3B17761C09002F24B4 = {
 			isa = PBXGroup;
 			children = (
+				C4B803AC1793B992008651CB /* CoreLocation.framework */,
 				C5EBCCCE177AD016000CF470 /* libz.1.1.3.dylib */,
 				C5EBCCCF177AD016000CF470 /* libz.1.2.5.dylib */,
 				C5EBCCD0177AD016000CF470 /* libz.1.dylib */,

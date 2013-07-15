@@ -118,4 +118,8 @@
      */
 }
 
+- (void)retrieveEventFailedWithMessage:(NSString*)message{}
+- (void)retrieveEventSucceededWithMessage:(NSString *)message Content:(NSArray*)array{}
+
+
 @end

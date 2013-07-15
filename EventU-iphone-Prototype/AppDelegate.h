@@ -12,6 +12,7 @@
 #import <Security/Security.h>
 #import <CommonCrypto/CommonHMAC.h>
 #import "ViewController.h"
+#import "eventsViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

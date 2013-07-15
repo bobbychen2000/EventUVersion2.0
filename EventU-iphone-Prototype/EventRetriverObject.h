@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "AppDelegate.h"
+#import "eventsViewController.h"
+#import "BackendCommunicator.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface EventRetriverObject : NSObject <CLLocationManagerDelegate>{
     eventsViewController* callBackViewController;
@@ -23,7 +25,6 @@
 - (void)locationManager:(CLLocationManager *) manager didUpdateLocations:(NSArray*)locations;
 - (void)locationManager:(CLLocationManager *) manager didFailWithError:(NSError*) error;
 - (void)locationManager:(CLLocationManager *) manager didFinishDeferredUpdatesWithError:(NSError*) error;
-- (void)updateLocationTimeout:(NSString*) input;
 - (void)requestEventListFromBackendWithLatitude:(NSString*)latitude Longtitude:(NSString*)longtitude Delegate:(EventRetriverObject*)delegate Timeout:(int64_t)timeout;
 - (void)requestFinished:(ASIHTTPRequest*)request;
 - (void)requestFailed:(ASIHTTPRequest*)request;

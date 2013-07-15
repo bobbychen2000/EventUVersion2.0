@@ -15,7 +15,6 @@
 
 - (id)init{
         _locationManager = [[CLLocationManager alloc] init];
-        _flag = false;
         return self;
     }
 
@@ -37,7 +36,7 @@
     CLLocation * location = [locations lastObject];
     NSString *latitude = [[NSString alloc] initWithFormat:@"%f", location.coordinate.latitude];
     NSString *longitude = [[NSString alloc] initWithFormat:@"%f", location.coordinate.longitude];
-    [self requestEventListFromBackendWithLatitude:latitude Longtitude:longitude Delegate:self];
+    [self requestEventListFromBackendWithLatitude:latitude Longtitude:longitude Delegate:self Timeout:3];
 }
 
 - (void)locationManager:(CLLocationManager *) manager didFailWithError:(NSError*) error{
@@ -74,7 +73,7 @@
   }
                            
 - (void)requestFinished:(ASIHTTPRequest*)request{
-    [_callBackViewController retrieveEventSucceededWithMessage:@"GET EVENTS Succeeded" Content:request];
+    [_callBackViewController retrieveEventSucceededWithMessage:@"GET EVENTS Succeeded" Content:nil];
 }
 
 - (void)requestFailed:(ASIHTTPRequest*)request

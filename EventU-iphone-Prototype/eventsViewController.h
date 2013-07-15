@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface eventsViewController : UITableViewController
-
+- (void)retrieveEventFailedWithMessage:(NSString*)message;
+- (void)retrieveEventSucceededWithMessage:(NSString *)message Content:(NSArray*)array;
 @end

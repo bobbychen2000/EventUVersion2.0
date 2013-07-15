@@ -15,8 +15,8 @@
 #import "AppDelegate.h"
 #import <CoreLocation/CoreLocation.h>
 #import "EventRetriverObject.h"
-
-static EventRetriverObject* ERO;
+#import "eventsViewController.h"
+#import <CoreLocation/CLLocationManager.h>
 
 @interface BackendCommunicator : NSObject
 
